@@ -1,0 +1,19 @@
+# dependencies
+/node_modules
+/node_modules_partial
+
+# Next.js build and development output
+/.next
+/.next-*
+/out
+
+# local environment files
+.env*
+!.env.example
+
+# logs and editor files
+*.log
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
