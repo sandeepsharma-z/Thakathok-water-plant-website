@@ -11,7 +11,7 @@ export function Brand({ light=false }) {
 export function Header() {
   const [open,setOpen]=useState(false); const [scrolled,setScrolled]=useState(false);
   useEffect(()=>{const f=()=>setScrolled(scrollY>20);f();addEventListener('scroll',f);return()=>removeEventListener('scroll',f)},[]);
-  return <header className={`nav inner-nav ${scrolled?'scrolled':''}`}><div className="nav-inner"><Brand/><nav className={`nav-links ${open?'open':''}`}><Link onClick={()=>setOpen(false)} href="/about">About</Link><Link onClick={()=>setOpen(false)} href="/features">App Screens</Link><Link onClick={()=>setOpen(false)} href="/support">Support</Link><Link onClick={()=>setOpen(false)} href="/privacy-policy">Privacy</Link><Link onClick={()=>setOpen(false)} className="nav-cta" href="/#coming-soon">Coming Soon</Link></nav><button className="menu-btn" onClick={()=>setOpen(!open)} aria-label="Menu">{open?<X/>:<Menu/>}</button></div></header>
+  return <header className={`nav inner-nav ${scrolled?'scrolled':''}`}><div className="nav-inner"><Brand/><nav className={`nav-links ${open?'open':''}`}><div className="mobile-menu-logo"><Brand/></div><Link onClick={()=>setOpen(false)} href="/about">About</Link><Link onClick={()=>setOpen(false)} href="/features">App Screens</Link><Link onClick={()=>setOpen(false)} href="/support">Support</Link><Link onClick={()=>setOpen(false)} href="/privacy-policy">Privacy</Link><Link onClick={()=>setOpen(false)} className="nav-cta" href="/#coming-soon">Coming Soon</Link></nav><button className="menu-btn" onClick={()=>setOpen(!open)} aria-label="Menu">{open?<X/>:<Menu/>}</button></div></header>
 }
 
 export function Footer() {

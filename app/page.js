@@ -39,6 +39,7 @@ export default function Home() {
         <div className="nav-inner">
           <Logo />
           <nav className={menuOpen ? 'nav-links open' : 'nav-links'}>
+            <div className="mobile-menu-logo"><Logo /></div>
             <a href="/about" onClick={close}>About</a>
             <a href="/features" onClick={close}>App Screens</a>
             <a href="#how" onClick={close}>How it works</a>
