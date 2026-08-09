@@ -69,6 +69,7 @@ export default function Home() {
             <div className="mobile-menu-logo"><Logo /></div>
             <a href="/about" onClick={close}>About</a>
             <a href="/features" onClick={close}>App Screens</a>
+            <a href="#wallet" onClick={close}>Wallet</a>
             <a href="#how" onClick={close}>How it works</a>
             <a href="#contact" onClick={close}>Contact</a>
             <a href="#coming-soon" onClick={close} className="nav-cta">Get notified <ArrowRight size={16}/></a>
@@ -128,6 +129,29 @@ export default function Home() {
             <a className="button secondary" href="#coming-soon">Join the launch list <ArrowRight size={18}/></a>
           </motion.div>
           <div className="screens-stage">{screens.map((s,i)=><motion.div key={s.src} className={`screen-phone screen-${i+1}`} initial={{opacity:0,y:50,rotate:i%2?5:-5}} whileInView={{opacity:1,y:0,rotate:i===0?-8:i===1?-2:i===2?5:10}} viewport={{once:true}} transition={{duration:.7,delay:i*.1}}><Image src={s.src} alt={s.label} fill sizes="260px"/><span>{s.label}</span></motion.div>)}</div>
+        </div>
+      </section>
+
+      <section id="wallet" className="section wallet-showcase">
+        <div className="wallet-orb wallet-orb-one"/><div className="wallet-orb wallet-orb-two"/>
+        <div className="container wallet-showcase-grid">
+          <motion.div {...fade} className="wallet-device-stage">
+            <div className="wallet-phone"><Image src="/screens/Wallet.jpeg" alt="ShriJal app wallet screen with secure add money option" fill sizes="(max-width: 760px) 72vw, 310px"/></div>
+            <div className="wallet-float-card wallet-balance-card"><span><Wallet/></span><div><small>Available balance</small><b>Always in your control</b></div></div>
+            <div className="wallet-float-card wallet-secure-card"><ShieldCheck/><div><b>Secure payments</b><small>Verified server-side</small></div></div>
+          </motion.div>
+          <motion.div {...fade} className="wallet-showcase-copy">
+            <span className="kicker">SHRIJAL WALLET</span>
+            <h2>Add money once.<br/><em>Order in seconds.</em></h2>
+            <p>The ShriJal app includes a convenient wallet built for faster everyday water orders. Add money securely, see your available balance and keep every transaction easy to understand.</p>
+            <div className="wallet-points">
+              <div><span><ShieldCheck/></span><div><b>Secure add money</b><small>Payments are verified securely before wallet credit is added.</small></div></div>
+              <div><span><Clock3/></span><div><b>Faster checkout</b><small>Use your wallet balance for quick, hassle-free water bookings.</small></div></div>
+              <div><span><Wallet/></span><div><b>Clear transaction history</b><small>Track wallet credits, payments and your current balance in one place.</small></div></div>
+            </div>
+            <a href="#coming-soon" className="button primary wallet-cta">Get the app at launch <ArrowRight size={18}/></a>
+            <p className="wallet-note"><ShieldCheck/> Wallet and payment features will be available securely inside the ShriJal app.</p>
+          </motion.div>
         </div>
       </section>
 
