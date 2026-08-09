@@ -31,8 +31,28 @@ function Logo({ light = false }) {
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [launchEmail, setLaunchEmail] = useState('');
+  const [subscribeState, setSubscribeState] = useState({ status: 'idle', message: '' });
   useEffect(() => { const fn = () => setScrolled(window.scrollY > 20); fn(); window.addEventListener('scroll', fn); return () => window.removeEventListener('scroll', fn); }, []);
   const close = () => setMenuOpen(false);
+  const subscribe = async (event) => {
+    event.preventDefault();
+    setSubscribeState({ status: 'loading', message: '' });
+    const data = new FormData(event.currentTarget);
+    try {
+      const response = await fetch('/api/launch-subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: launchEmail, company: data.get('company') }),
+      });
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.message || 'Could not subscribe.');
+      setLaunchEmail('');
+      setSubscribeState({ status: 'success', message: result.message });
+    } catch (error) {
+      setSubscribeState({ status: 'error', message: error.message || 'Please try again.' });
+    }
+  };
   return (
     <main id="top">
       <header className={scrolled ? 'nav scrolled' : 'nav'}>
@@ -108,7 +128,7 @@ export default function Home() {
         {[['01','Tell us where','Add your delivery address and choose your preferred date.'],['02','Pick your water','Select jars, bottle packs or a complete event package.'],['03','We bring it','Confirm your booking and leave the delivery to us.']].map((s,i)=><motion.div {...fade} transition={{duration:.55,delay:i*.1}} className="step" key={s[0]}><span className="step-no">{s[0]}</span><div className="step-art">{i===0?<CalendarCheck/>:i===1?<Droplets/>:<Truck/>}</div><h3>{s[1]}</h3><p>{s[2]}</p>{i<2&&<div className="step-line"/>}</motion.div>)}
       </div></div></section>
 
-      <section id="coming-soon" className="coming-section"><div className="container"><motion.div {...fade} className="coming-card"><div className="sparkle s-one">✦</div><div className="sparkle s-two">✦</div><span className="coming-icon"><Droplets/></span><span className="kicker light">COMING SOON</span><h2>A fresher way to order water<br/>is almost here.</h2><p>We’re adding the final drops. Be among the first to know when ShriJal goes live.</p><form className="notify-form" onSubmit={(e)=>e.preventDefault()}><input type="email" placeholder="Enter your email address" aria-label="Email address" required/><button className="button white" type="submit">Keep me posted <ArrowRight size={18}/></button></form><small><ShieldCheck size={14}/> No spam. Only one refreshing launch update.</small></motion.div></div></section>
+      <section id="coming-soon" className="coming-section"><div className="container"><motion.div {...fade} className="coming-card"><div className="sparkle s-one">✦</div><div className="sparkle s-two">✦</div><span className="coming-icon"><Droplets/></span><span className="kicker light">COMING SOON</span><h2>A fresher way to order water<br/>is almost here.</h2><p>We’re adding the final drops. Be among the first to know when ShriJal goes live.</p><form className="notify-form" onSubmit={subscribe}><input type="email" value={launchEmail} onChange={(event)=>setLaunchEmail(event.target.value)} placeholder="Enter your email address" aria-label="Email address" autoComplete="email" required disabled={subscribeState.status==='loading'}/><input className="website-field" name="company" tabIndex="-1" autoComplete="off" aria-hidden="true"/><button className="button white" type="submit" disabled={subscribeState.status==='loading'}>{subscribeState.status==='loading'?'Saving…':'Keep me posted'} <ArrowRight size={18}/></button></form>{subscribeState.message&&<div className={`subscribe-message ${subscribeState.status}`} role="status">{subscribeState.message}</div>}<small><ShieldCheck size={14}/> No spam. Only one refreshing launch update.</small></motion.div></div></section>
 
       <footer id="contact"><div className="container footer-grid"><div><Logo light/><p>Making clean, reliable water delivery beautifully simple for every home and occasion.</p></div><div><h4>Explore</h4><a href="/about">About ShriJal</a><a href="/features">App Screens</a><a href="#how">How it works</a></div><div><h4>Support</h4><a href="/support">Help & Support</a><a href="/privacy-policy">Privacy Policy</a><a href="/terms">Terms of Use</a></div><div className="footer-note"><Sparkles/><p><b>Made with care in Maharashtra</b><br/>For homes, offices & celebrations.</p></div></div><div className="container copyright"><span>© 2026 ShriJal. All rights reserved.</span><span>Design & Developed by <a className="solvinex" href="https://solvinex.com" target="_blank" rel="noopener noreferrer">Solvinex</a></span></div></footer>
       <FloatingActions />
