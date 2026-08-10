@@ -1,12 +1,181 @@
-import { Camera, CreditCard, Database, LockKeyhole, ShieldCheck, UserRound } from 'lucide-react';
-import { PageHero, PageShell } from '../components/SiteShell';
+import {
+  Camera,
+  CreditCard,
+  Database,
+  LockKeyhole,
+  ShieldCheck,
+  UserRound,
+} from "lucide-react";
+import { PageHero, PageShell } from "../components/SiteShell";
 
-const summary=[['Profile',UserRound,'Name, mobile number, village, delivery address and optional profile photo.'],['Orders',Database,'Products, quantities, event details, delivery schedules, addresses and booking history.'],['Payments',CreditCard,'Payment method, transaction references, wallet activity and pending dues.'],['Permissions',Camera,'Camera or photo library only when you choose to add a profile photo.']];
-export default function Privacy(){return <PageShell><PageHero eyebrow="YOUR PRIVACY MATTERS" title="Clear, honest &" highlight="privacy-first." description="This policy explains what the ShriJal customer app collects, why it is needed and the choices available to you."/><section className="legal-section"><div className="container legal-layout"><aside><div className="policy-badge"><ShieldCheck/><b>Privacy Policy</b><span>Last updated: 8 August 2026</span></div><nav><a href="#collect">Information we collect</a><a href="#use">How we use it</a><a href="#share">Sharing & processors</a><a href="#security">Security</a><a href="#rights">Your choices</a><a href="#contact-policy">Contact</a></nav></aside><article className="legal-content"><div className="privacy-summary">{summary.map(([t,I,d])=><div key={t}><I/><h3>{t}</h3><p>{d}</p></div>)}</div><p>ShriJal is a water-ordering and delivery application operated for Mahalakshmi Water Plant. This Privacy Policy applies to the ShriJal customer app and this website. By using the service, you acknowledge the practices described below.</p>
-<h2 id="collect">1. Information we collect</h2><h3>Account and profile information</h3><p>When you sign in or update your profile, we may collect your full name, Indian mobile number, village or service area, delivery address or hall name, and an optional profile photograph. Your opaque session token is stored in encrypted device storage. Some basic profile preferences may also be stored locally on your device.</p><h3>Launch notifications</h3><p>If you join the website launch list, we collect the email address you submit, its subscription status, source and submission time so we can send the requested ShriJal launch update.</p><h3>Booking and delivery information</h3><p>We process the water products or event packs you select, number of cans, booking date and time, delivery address, village, extra delivery schedules, order notes, booking status, delivery progress, returned-can information and order history.</p><h3>Payment and wallet information</h3><p>We process order totals, selected payment method, advance or balance status, wallet balance and transaction history, Razorpay order/payment references and payment verification results. Full card, UPI PIN or banking credentials are handled by the payment provider and are not stored by ShriJal.</p><h3>Device permissions</h3><p>The app may request camera or photo-library access only when you choose to capture, select, crop or upload a profile picture. The current app does not request precise GPS location; delivery addresses are entered or selected by you.</p>
-<h2 id="use">2. How we use information</h2><p>We use information to create and secure your customer session, save delivery addresses, accept and fulfil orders, schedule deliveries, calculate rates and charges, confirm and verify payments, maintain your wallet, show booking history, send service and payment updates, respond through support, prevent abuse and improve reliability.</p>
-<h2 id="share">3. When information is shared</h2><p>Information is shared only as needed to operate the service: with the water plant’s authorised administrators and delivery staff; Supabase for database, storage and server functions; Razorpay for online payment processing; and communication providers when service-related SMS, calling or WhatsApp functions are used. We do not sell personal information.</p>
-<h2 id="security">4. Storage, security and retention</h2><p>ShriJal uses access-controlled backend services, secure HTTPS connections, server-side payment verification and encrypted storage for the customer session token. No internet service is completely risk-free. We retain account, order and payment records for as long as reasonably required to deliver services, maintain accounts, resolve disputes, meet legal obligations and prevent fraud.</p>
-<h2 id="rights">5. Your choices and rights</h2><p>You can edit your name, village, address and profile photo in the app. Camera and photo access can be denied or withdrawn through device settings. You may sign out to remove the active session from your device. To request access, correction or deletion of account-related personal information, contact the plant using the details below. Some transaction records may need to be retained where required by law or legitimate accounting needs.</p>
-<h2>6. Children’s privacy</h2><p>The service is not intentionally directed to children under 13. A parent or guardian should contact us if they believe a child has submitted personal information without appropriate consent.</p><h2>7. Policy updates</h2><p>We may update this policy when app features, service providers or legal requirements change. The latest revision date will always appear at the top of this page.</p>
-<div id="contact-policy" className="legal-contact"><LockKeyhole/><div><h3>Questions or privacy requests?</h3><p>Contact Mahalakshmi Water Plant on <a href="tel:+918080739807">+91 80807 39807</a> or through <a href="https://wa.me/918080739807">WhatsApp</a>. Please include the mobile number connected to your account so we can verify the request.</p></div></div></article></div></section></PageShell>}
+const summary = [
+  [
+    "Profile",
+    UserRound,
+    "Name, mobile number, village, delivery address and optional profile photo.",
+  ],
+  [
+    "Orders",
+    Database,
+    "Products, quantities, event details, delivery schedules, addresses and booking history.",
+  ],
+  [
+    "Payments",
+    CreditCard,
+    "Payment method, transaction references, wallet activity and pending dues.",
+  ],
+  [
+    "Permissions",
+    Camera,
+    "Camera or photo library only when you choose to add a profile photo.",
+  ],
+];
+export default function Privacy() {
+  return (
+    <PageShell>
+      <PageHero
+        eyebrow="YOUR PRIVACY MATTERS"
+        title="Clear, honest &"
+        highlight="privacy-first."
+        description="This policy explains what the Mahalaxmi Water Plant customer app collects, why it is needed and the choices available to you."
+      />
+      <section className="legal-section">
+        <div className="container legal-layout">
+          <aside>
+            <div className="policy-badge">
+              <ShieldCheck />
+              <b>Privacy Policy</b>
+              <span>Last updated: 8 August 2026</span>
+            </div>
+            <nav>
+              <a href="#collect">Information we collect</a>
+              <a href="#use">How we use it</a>
+              <a href="#share">Sharing & processors</a>
+              <a href="#security">Security</a>
+              <a href="#rights">Your choices</a>
+              <a href="#contact-policy">Contact</a>
+            </nav>
+          </aside>
+          <article className="legal-content">
+            <div className="privacy-summary">
+              {summary.map(([t, I, d]) => (
+                <div key={t}>
+                  <I />
+                  <h3>{t}</h3>
+                  <p>{d}</p>
+                </div>
+              ))}
+            </div>
+            <p>
+              Mahalaxmi Water Plant is a water-ordering and delivery application operated for
+              Mahalakshmi Water Plant. This Privacy Policy applies to the
+              Mahalaxmi Water Plant customer app and this website. By using the service, you
+              acknowledge the practices described below.
+            </p>
+            <h2 id="collect">1. Information we collect</h2>
+            <h3>Account and profile information</h3>
+            <p>
+              When you sign in or update your profile, we may collect your full
+              name, Indian mobile number, village or service area, delivery
+              address or hall name, and an optional profile photograph. Your
+              opaque session token is stored in encrypted device storage. Some
+              basic profile preferences may also be stored locally on your
+              device.
+            </p>
+            <h3>Launch notifications</h3>
+            <p>
+              If you join the website launch list, we collect the email address
+              you submit, its subscription status, source and submission time so
+              we can send the requested Mahalaxmi Water Plant launch update.
+            </p>
+            <h3>Booking and delivery information</h3>
+            <p>
+              We process the water products or event packs you select, number of
+              cans, booking date and time, delivery address, village, extra
+              delivery schedules, order notes, booking status, delivery
+              progress, returned-can information and order history.
+            </p>
+            <h3>Payment and wallet information</h3>
+            <p>
+              We process order totals, selected payment method, advance or
+              balance status, wallet balance and transaction history, Razorpay
+              order/payment references and payment verification results. Full
+              card, UPI PIN or banking credentials are handled by the payment
+              provider and are not stored by Mahalaxmi Water Plant.
+            </p>
+            <h3>Device permissions</h3>
+            <p>
+              The app may request camera or photo-library access only when you
+              choose to capture, select, crop or upload a profile picture. The
+              current app does not request precise GPS location; delivery
+              addresses are entered or selected by you.
+            </p>
+            <h2 id="use">2. How we use information</h2>
+            <p>
+              We use information to create and secure your customer session,
+              save delivery addresses, accept and fulfil orders, schedule
+              deliveries, calculate rates and charges, confirm and verify
+              payments, maintain your wallet, show booking history, send service
+              and payment updates, respond through support, prevent abuse and
+              improve reliability.
+            </p>
+            <h2 id="share">3. When information is shared</h2>
+            <p>
+              Information is shared only as needed to operate the service: with
+              the water plant’s authorised administrators and delivery staff;
+              Supabase for database, storage and server functions; Razorpay for
+              online payment processing; and communication providers when
+              service-related SMS, calling or WhatsApp functions are used. We do
+              not sell personal information.
+            </p>
+            <h2 id="security">4. Storage, security and retention</h2>
+            <p>
+              Mahalaxmi Water Plant uses access-controlled backend services, secure HTTPS
+              connections, server-side payment verification and encrypted
+              storage for the customer session token. No internet service is
+              completely risk-free. We retain account, order and payment records
+              for as long as reasonably required to deliver services, maintain
+              accounts, resolve disputes, meet legal obligations and prevent
+              fraud.
+            </p>
+            <h2 id="rights">5. Your choices and rights</h2>
+            <p>
+              You can edit your name, village, address and profile photo in the
+              app. Camera and photo access can be denied or withdrawn through
+              device settings. You may sign out to remove the active session
+              from your device. To request access, correction or deletion of
+              account-related personal information, contact the plant using the
+              details below. Some transaction records may need to be retained
+              where required by law or legitimate accounting needs.
+            </p>
+            <h2>6. Children’s privacy</h2>
+            <p>
+              The service is not intentionally directed to children under 13. A
+              parent or guardian should contact us if they believe a child has
+              submitted personal information without appropriate consent.
+            </p>
+            <h2>7. Policy updates</h2>
+            <p>
+              We may update this policy when app features, service providers or
+              legal requirements change. The latest revision date will always
+              appear at the top of this page.
+            </p>
+            <div id="contact-policy" className="legal-contact">
+              <LockKeyhole />
+              <div>
+                <h3>Questions or privacy requests?</h3>
+                <p>
+                  Contact Mahalakshmi Water Plant on{" "}
+                  <a href="tel:+918080739807">+91 80807 39807</a> or through{" "}
+                  <a href="https://wa.me/918080739807">WhatsApp</a>. Please
+                  include the mobile number connected to your account so we can
+                  verify the request.
+                </p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </PageShell>
+  );
+}

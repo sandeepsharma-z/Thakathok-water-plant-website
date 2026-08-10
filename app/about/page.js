@@ -1,3 +1,74 @@
-import { Droplets, HeartHandshake, MapPin, ShieldCheck, Sparkles, Truck } from 'lucide-react';
-import { PageHero, PageShell } from '../components/SiteShell';
-export default function About(){return <PageShell><PageHero eyebrow="OUR STORY" title="Local water delivery," highlight="made effortless." description="ShriJal connects families, offices and celebrations with Mahalakshmi Water Plant through one simple, dependable app."/><section className="content-section"><div className="container about-grid"><div><span className="kicker">WHY WE EXIST</span><h2>Less waiting. More living.</h2><p>Water is essential, but ordering it should not mean repeated calls, unclear prices or uncertain delivery. ShriJal brings product discovery, scheduled booking, secure payments and local support into a calm digital experience.</p><p>Built around villages and communities in Maharashtra, the platform supports everyday jars as well as birthdays, weddings and large events.</p></div><div className="value-grid">{[[Droplets,'Pure purpose','Reliable water ordering for everyday needs.'],[MapPin,'Truly local','Built around the areas the plant serves.'],[Truck,'Dependable','Clear schedules and trackable bookings.'],[HeartHandshake,'Human support','The local team is always within reach.']].map(([I,t,p])=><div key={t}><I/><h3>{t}</h3><p>{p}</p></div>)}</div></div><div className="container about-banner"><ShieldCheck/><div><span>OUR PROMISE</span><h2>Simple technology. Trusted local service.</h2></div><Sparkles/></div></section></PageShell>}
+import {
+  Droplets,
+  HeartHandshake,
+  MapPin,
+  ShieldCheck,
+  Sparkles,
+  Truck,
+} from "lucide-react";
+import { PageHero, PageShell } from "../components/SiteShell";
+export default function About() {
+  return (
+    <PageShell>
+      <PageHero
+        eyebrow="OUR STORY"
+        title="Local water delivery,"
+        highlight="made effortless."
+        description="Mahalaxmi Water Plant connects families, offices and celebrations through one simple, dependable app."
+      />
+      <section className="content-section">
+        <div className="container about-grid">
+          <div>
+            <span className="kicker">WHY WE EXIST</span>
+            <h2>Less waiting. More living.</h2>
+            <p>
+              Water is essential, but ordering it should not mean repeated
+              calls, unclear prices or uncertain delivery. Mahalaxmi Water Plant brings
+              product discovery, scheduled booking, secure payments and local
+              support into a calm digital experience.
+            </p>
+            <p>
+              Built around villages and communities in Maharashtra, the platform
+              supports everyday jars as well as birthdays, weddings and large
+              events.
+            </p>
+          </div>
+          <div className="value-grid">
+            {[
+              [
+                Droplets,
+                "Pure purpose",
+                "Reliable water ordering for everyday needs.",
+              ],
+              [
+                MapPin,
+                "Truly local",
+                "Built around the areas the plant serves.",
+              ],
+              [Truck, "Dependable", "Clear schedules and trackable bookings."],
+              [
+                HeartHandshake,
+                "Human support",
+                "The local team is always within reach.",
+              ],
+            ].map(([I, t, p]) => (
+              <div key={t}>
+                <I />
+                <h3>{t}</h3>
+                <p>{p}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="container about-banner">
+          <ShieldCheck />
+          <div>
+            <span>OUR PROMISE</span>
+            <h2>Simple technology. Trusted local service.</h2>
+          </div>
+          <Sparkles />
+        </div>
+      </section>
+    </PageShell>
+  );
+}
